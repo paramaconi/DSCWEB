@@ -22,44 +22,30 @@ namespace DSCWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["lang"] = LANGSP;
 
-            //if (Request.QueryString.AllKeys.Contains("lang") && !String.IsNullOrEmpty(Request.QueryString["lang"]))
-            //{
-            //    if (Request.QueryString["lang"] == this.DefaultLang || Request.QueryString["lang"] == LANGSP)
-            //    {
-            //        this.LangActive = Request.QueryString["lang"].ToLower().ToString();
-            //    } 
-            //    else
-            //    {
-            //        this.LangActive = this.DefaultLang;
-            //    }
-            //}
-            //else
-            //{
-            //    this.LangActive = this.DefaultLang;
-            //}
+            if (Session["deflang"] != null)
+            {
 
+            }
+            else
+            {
+                string[] languages = HttpContext.Current.Request.UserLanguages;
 
-            //if (this.LangActive == "sp")
-            //{
-            //    //this.project1.Text = "Sistema de Administración de préstamos y alquileres (SAPA)";
-            //    //this.mnuInicio.Text = "Inicio";
-            //    //this.mnuNosotros.Text = "Nosotros";
-            //    //this.mnuFortalezas.Text = "Fortalezas";
-                
-            //} 
-            //else
-            //{
-            //    //this.mnuInicio.Text = "Home";
-            //    //this.mnuNosotros.Text = "About Us";
-            //    //this.mnuFortalezas.Text = "Strengths";
-            //    //this.project1.Text = "Loan and Rental Administration System (SAPA)";
-            //}
+                if (languages != null)
+                {
+                    var deflang = languages[0];
 
-            //this.mnuNosotrosTitle = this.mnuNosotros.Text;
-            //this.mnuFotalezasTitle = this.mnuFortalezas.Text;
-
+                    if (deflang.Substring(0, 2) != "es")
+                    {
+                        Session["deflang"] = "en";
+                        Response.Redirect("index-us.aspx");
+                    } 
+                    else
+                    {
+                        Session["deflang"] = "es";
+                    }
+                }
+            }               
         }
 
         protected void Enviar_Click(object sender, EventArgs e)

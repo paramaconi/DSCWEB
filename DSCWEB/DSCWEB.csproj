@@ -435,7 +435,7 @@
     <Content Include="assets\img\misc\bg_timeline-line.png" />
     <Content Include="assets\img\misc\icon_loading.gif" />
     <Content Include="assets\img\misc\map.png" />
-    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\partner\Logo-04-1.png" />
     <Content Include="assets\img\patterns\back_pattern.png" />
     <Content Include="assets\img\patterns\back_pattern_%402X.png" />
     <Content Include="assets\img\patterns\chalkboard.jpg" />
@@ -4074,7 +4074,6 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="assets\img\partner\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>

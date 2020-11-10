@@ -14,9 +14,30 @@ namespace DSCWEB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["deflang"] != null)
+            {
 
+            }
+            else
+            {
+                string[] languages = HttpContext.Current.Request.UserLanguages;
+
+                if (languages != null)
+                {
+                    var deflang = languages[0];
+
+                    if (deflang.Substring(0, 2) != "en")
+                    {
+                        Session["deflang"] = "es";
+                        Response.Redirect("index.aspx");
+                    }
+                    else
+                    {
+                        Session["deflang"] = "es";
+                    }
+                }
+            }
         }
-
 
         protected void Enviar_Click(object sender, EventArgs e)
         {
